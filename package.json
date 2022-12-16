@@ -4,7 +4,8 @@
   "description": "Discord Bot that provides point system to keep LOG members active",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,4 +14,5 @@
     "discord.js": "^14.7.1",
     "dotenv": "^16.0.3"
   }
+  
 }
