@@ -25,7 +25,7 @@ async function loadEvents(client){
 
         table.addRow(event.name,"🟩");
     })
-    return console.log(table.toString(),"/n loaded events")
+    return console.log(table.toString()," \n loaded events")
 }
 
 module.exports = { loadEvents }

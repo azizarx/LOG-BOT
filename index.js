@@ -7,6 +7,7 @@ const client = new Client({
   partials: [User,Message,GuildMember,ThreadMember]
 });
 client.events = new Collection();
+client.commands = new Collection();
 const { loadEvents } = require("./Handlers/eventHandler");
 loadEvents(client);
 client.login(process.env.TOKEN);
