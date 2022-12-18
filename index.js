@@ -1,22 +1,14 @@
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, GatewayIntentBits,Partials, Collection } = require('discord.js');
 require('dotenv/config') 
-const client = new Client({ 
-  intents: [
-  GatewayIntentBits.Guilds,
-  GatewayIntentBits.GuildMessages,
-  GatewayIntentBits.MessageContent,
-  
-  ], 
+const {Guilds,GuildMembers,GuildMessages,MessageContent} = GatewayIntentBits;
+const {User,Message,GuildMember, ThreadMember} = Partials;
+const client = new Client({
+  intents: [Guilds, GuildMembers, GuildMessages,MessageContent],
+  partials: [User,Message,GuildMember,ThreadMember]
 });
-
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
-
-client.on('messageCreate', async message => {
-  if (message.content == "!ping"){
-    message.reply('pong');
-  }
-});
-
+client.events = new Collection();
+const { loadEvents } = require("./Handlers/eventHandler");
+loadEvents(client);
 client.login(process.env.TOKEN);
+
+
