@@ -6,6 +6,8 @@ const client = new Client({
   intents: [Guilds, GuildMembers, GuildMessages,MessageContent],
   partials: [User,Message,GuildMember,ThreadMember]
 });
+const commandHandler = require('./Handlers/commandHandler.js');
+client.on("messageCreate",commandHandler);
 client.events = new Collection();
 client.commands = new Collection();
 const { loadEvents } = require("./Handlers/eventHandler");
