@@ -1,3 +1,4 @@
+const memberC = require("../../Controllers/Member");
 module.exports =  {
     name:"ready",
     once: true,

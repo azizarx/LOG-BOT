@@ -1,10 +1,12 @@
 const ping = require('../Commands/ping.js');
-const commands = { ping }
+const editpts = require('../Commands/editPts.js');
+const edithearts = require('../Commands/editHearts.js');
+const commands = { ping,editpts,edithearts };
 module.exports = async function (msg){
-    let tokens = msg.content.split(" ");
-    let command = tokens.shift();
-    if(command.charAt(0)=="!"){
-        command = command.substring(1);
+    let tokens = msg.content.toLowerCase().split(" ");
+    let prefix = tokens.shift();
+    if(prefix.toLowerCase() =="!log"){
+        let command = tokens.shift();
         commands[command](msg, tokens);
     }
 }
