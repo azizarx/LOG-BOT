@@ -6,6 +6,11 @@ const  getAllMembers = async ()=>{
      const Members = await member.find({});
      return Members;
 };
+const getMemberByID = async (Id)=>{
+    const theMember = await member.find({id:Id})
+    console.log(theMember)
+    return theMember
+}
 const createMember = async (memberObj)=>{
    try{
 
@@ -52,5 +57,6 @@ module.exports = {
     getAllMembers,
     createMember,
     editPoints,
-    editHearts
+    editHearts,
+    getMemberByID
 }
