@@ -1,6 +1,6 @@
-const { findOneAndUpdate } = require('../Models/member.js');
+const { findOneAndUpdate, mapReduce } = require('../Models/member.js');
 const member = require('../Models/member.js');
-
+const ranks = new Object();
 
 const  getAllMembers = async ()=>{
      const Members = await member.find({});
@@ -8,7 +8,6 @@ const  getAllMembers = async ()=>{
 };
 const getMemberByID = async (Id)=>{
     const theMember = await member.find({id:Id})
-    console.log(theMember)
     return theMember
 }
 const createMember = async (memberObj)=>{
@@ -53,10 +52,33 @@ const editHearts = async (MemberId,heart)=>{
     console.error(err);
 }
 }
+const updateRank = async (MemberId)=>{
+    const Member = await member.find({id:MemberId});
+    let pts = Member[0].points;
+    let rankStr = ''
+    if(pts>=250){
+        rankStr = "LOGGER";
+    }else if(pts >= 180){
+        rankStr = "Emerald";
+    }else if(pts >= 130){
+        rankStr = "Diamond";
+    }else if(pts >= 90){
+        rankStr = "Gold";
+    }else if(pts >= 50){
+        rankStr = "Silver";
+    }else if(pts >= 20){
+        rankStr = "Bronze";
+    }else{
+        rankStr = "Unranked";
+    }
+    const updatedMember = await member.findOneAndUpdate({id:MemberId},{rank:rankStr});
+    return updatedMember
+}
 module.exports = {
     getAllMembers,
     createMember,
     editPoints,
     editHearts,
-    getMemberByID
+    getMemberByID,
+    updateRank
 }
