@@ -8,7 +8,7 @@ const client = new Client({
 });
 const connectDB = require("./Configs/db");
 const commandHandler = require('./Handlers/commandHandler.js');
-client.on("messageCreate",commandHandler);
+client.on("messageCreate",(msg)=>commandHandler(msg,client));
 client.events = new Collection();
 client.commands = new Collection();
 const { loadEvents } = require("./Handlers/eventHandler");

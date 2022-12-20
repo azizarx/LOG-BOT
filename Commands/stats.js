@@ -9,8 +9,9 @@ const ranksIcon = {
     "Emerald":"https://scontent.ftun1-2.fna.fbcdn.net/v/t1.15752-9/320742960_1201506947409394_4692863325155142074_n.png?_nc_cat=103&ccb=1-7&_nc_sid=ae9488&_nc_ohc=3jy-sor6mW8AX9Kyh2J&_nc_ht=scontent.ftun1-2.fna&oh=03_AdQoIG8c4v0cHwee114t4QZ7z5p1v-ZxbbfjliLXKVraew&oe=63C7DBF7",
     "LOGGER":"https://scontent.ftun1-2.fna.fbcdn.net/v/t1.15752-9/320383891_652527159996212_162914592375142156_n.png?_nc_cat=102&ccb=1-7&_nc_sid=ae9488&_nc_ohc=6Nu_1r2CVZYAX-APYvg&_nc_ht=scontent.ftun1-2.fna&oh=03_AdRkXjyJJKalfwiN_LjRq3SBiXSHl1y0KnbxO8cJjuW4bg&oe=63C7FAF2"
 }
-module.exports = async (msg,args)=>{
+module.exports = async (msg,args,client)=>{
     try{   
+        let owner = await client.users.fetch("372142246331416579");
         let id = args[0] || `<@${msg.author.id}>`;
         let data = await memberC.getMemberByID(id)
         if(data.length == 0){
@@ -27,8 +28,8 @@ module.exports = async (msg,args)=>{
             {name:"Points",value:data.points.toString(), inline:true},
             {name:"Hearts",value:data.hearts.toString()+" <:LOG_HEART:1054413126390526043>",inline:true},
             {name:"Rank",value:data.rank, inline:true}
-        ).setFooter({text: `Made with ❤️ by Azizar Himself#4849`,
-        iconURL:`https://scontent.ftun1-2.fna.fbcdn.net/v/t1.6435-9/72102644_692610867891624_8459852470829449216_n.png?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=f80vxS1CdGIAX_pc8jX&_nc_ht=scontent.ftun1-2.fna&oh=00_AfD5pbK8IrgrWQ5NAxzT6U9uj0Kti7wGdKrfzal986WqMw&oe=63C7C770`})
+        ).setFooter({text: `Made with ❤️ by ${owner.username}#${owner.discriminator}`,
+        iconURL:`https://cdn.discordapp.com/avatars/372142246331416579/${owner.avatar}`})
         
         msg.reply({embeds: [stats]});
     }catch(err){

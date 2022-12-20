@@ -8,7 +8,13 @@ const  getAllMembers = async ()=>{
 };
 const getMemberByID = async (Id)=>{
     const theMember = await member.find({id:Id})
-    return theMember
+    if(!theMember){
+        console.log("Member not found")
+        return
+    }else{
+        return theMember
+    }
+    
 }
 const createMember = async (memberObj)=>{
    try{
@@ -74,11 +80,23 @@ const updateRank = async (MemberId)=>{
     const updatedMember = await member.findOneAndUpdate({id:MemberId},{rank:rankStr});
     return updatedMember
 }
+const deleteMember = async (memberId)=>{
+    try{
+     const res = await member.findOneAndRemove({id:memberId});
+    if(!res){
+        console.log('could not find user')
+    }
+    return res;
+    }catch(err){
+        console.error(err);
+    }
+}
 module.exports = {
     getAllMembers,
     createMember,
     editPoints,
     editHearts,
     getMemberByID,
-    updateRank
+    updateRank,
+    deleteMember
 }
