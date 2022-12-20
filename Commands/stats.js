@@ -18,7 +18,6 @@ module.exports = async (msg,args)=>{
             return
         }
         data = data[0];
-        console.log(data.rank)
         const stats = new EmbedBuilder()
         .setTitle("✨**Stats**✨")
         .setColor(msg.member.displayHexColor)
