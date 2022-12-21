@@ -67,7 +67,7 @@ const updateRank = async (MemberId)=>{
     }else if(pts >= 180){
         rankStr = "Emerald";
     }else if(pts >= 130){
-        rankStr = "Diamond";
+        rankStr = "Platinium";
     }else if(pts >= 90){
         rankStr = "Gold";
     }else if(pts >= 50){

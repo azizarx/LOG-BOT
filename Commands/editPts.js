@@ -3,7 +3,7 @@ module.exports = async (msg,args)=>{
     try{
         if(msg.author.id == '372142246331416579'){
         if(!args[1]){
-            msg.reply("you did'nt presify the member")
+            msg.reply("you didn't spesify the member")
             return
         }
         pts = Number(args[0]);
