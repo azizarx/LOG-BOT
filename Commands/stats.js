@@ -18,6 +18,8 @@ module.exports = async (msg,args,client)=>{
             return
         }
         data = data[0];
+        var half = 0;
+        data.hearts % 1 == 0.5 ? half = 1 : half = 0;
         const stats = new EmbedBuilder()
         .setAuthor({name:`${msg.author.username}#${msg.author.discriminator}`,iconURL:`https://cdn.discordapp.com/avatars/${msg.author.id}/${msg.author.avatar}`})
         .setTitle("✨**Stats**✨")
@@ -26,7 +28,7 @@ module.exports = async (msg,args,client)=>{
         .addFields(
             {name:'Name',value:data.name},
             {name:"Points",value:data.points.toString(), inline:true},
-            {name:"Hearts",value:"<:LOG_HEART:1054413126390526043> ".repeat(data.hearts),inline:true},
+            {name:"Hearts",value:`${" <:LOG_HEART:1054413126390526043>".repeat(data.hearts)}${"<:LOG_HALF_HEART:1054413122800189451>".repeat(half)}`,inline:true},
             {name:"Rank",value:data.rank, inline:true}
         ).setFooter({text: `Made with ❤️ by ${owner.username}#${owner.discriminator}`,
         iconURL:`https://cdn.discordapp.com/avatars/372142246331416579/${owner.avatar}`})
