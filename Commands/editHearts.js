@@ -1,4 +1,5 @@
 const memberC = require('../Controllers/Member.js');
+const makeEmbed = require('../Functions/makeEmbed');
 module.exports = async (msg,args)=>{
     try{
         if(msg.author.id == '372142246331416579'){
@@ -10,7 +11,7 @@ module.exports = async (msg,args)=>{
         let result = await memberC.editHearts(args[1],hearts);
         result ? msg.reply('modified hearts'): msg.react('❌');
     }else{
-        msg.reply('you are not allowed to use this command');
+        msg.reply({embeds:[makeEmbed('Rejected',"Problem","you are not allower to use this command")]});
     }
     }catch(msg){
         msg.react('❌');
