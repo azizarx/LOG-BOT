@@ -1,5 +1,6 @@
 const { EmbedBuilder } = require('discord.js');
 const  memberC = require('../Controllers/Member.js');
+const  makeEmbed = require('../Functions/makeEmbed.js');
 const ranksIcon = {
     "unranked":"https://scontent.ftun1-2.fna.fbcdn.net/v/t1.15752-9/320585227_512001617575148_3662981354600453969_n.png?_nc_cat=105&ccb=1-7&_nc_sid=ae9488&_nc_ohc=dgrLw_6zj80AX-R3a0l&_nc_ht=scontent.ftun1-2.fna&oh=03_AdR-ZgOVFtJ-bNrnzagz7CsTKqC46o8EG7NC6dOVIa6TBg&oe=63C80E90",
     "silver":"https://scontent.ftun1-2.fna.fbcdn.net/v/t1.15752-9/320735218_840007447211272_1518004261434115660_n.png?_nc_cat=106&ccb=1-7&_nc_sid=ae9488&_nc_ohc=CsnrL3dx0sAAX8rvJeE&_nc_ht=scontent.ftun1-2.fna&oh=03_AdQZTB5dLMeVxSGVRaMyt4CUgKmlSklE0j50KjnvA7suxw&oe=63C7FC1F",
@@ -14,7 +15,8 @@ module.exports = async (msg,args,client)=>{
         let id = args[0] || `<@${msg.author.id}>`;
         let data = await memberC.getMemberByID(id)
         if(data.length == 0){
-            msg.reply("member not found!");
+            msg.reply({embeds:[makeEmbed('Member Not Found',null,null,`⛔ - Invalid Input, please mention a valid member!`,'Red')]});
+            msg.react('❌')
             return
         }
         data = data[0];

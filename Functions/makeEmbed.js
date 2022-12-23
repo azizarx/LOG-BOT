@@ -1,8 +1,13 @@
 const { EmbedBuilder } = require('discord.js');
-module.exports = (title,Name, text)=>{
+module.exports = (title, fieldName = null, fieldValue = null, description=null,color)=>{
 const embed = new EmbedBuilder()
 .setTitle(title)
-.addFields({name:Name,value:text})
+if(fieldName)
+embed.addFields({name:fieldName, value:fieldValue})
+if (description)
+    embed.setDescription(description)
+if(color)
+    embed.setColor(color)
 //.setThumbnail(iconUrl)
 //.setAuthor({name:authorName})
 //.setColor(color)
