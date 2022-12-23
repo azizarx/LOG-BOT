@@ -4,9 +4,9 @@ module.exports =  {
     name:"ready",
     once: true,
     async execute(a,client){
-        console.log('the client is now ready');
+     /*   console.log('the client is now ready');
         client.user.setActivity("Log is your next level");
-      /*  try{
+        try{
         const roles = ['Chiefs', 'LOG Game Dev', 'LOG Japanese Culture', 'LOG Logistics&Events', 'LOG Design', 'LOG Marketing', 'LOG Sponsoring'];
         const guild =  client.guilds.cache.get('792119525557796864');
         const allMembers = guild.members.fetch()
