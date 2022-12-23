@@ -6,8 +6,8 @@ module.exports =  {
     async execute(a,client){
         console.log('the client is now ready');
         client.user.setActivity("Log is your next level");
-        try{
-        const roles = ['Chiefs', 'Log Game Dev', 'Log Japanese Culture', 'Log Logistics&Events', 'Log Design', 'Log Marketing', 'Log Sponsoring'];
+      /*  try{
+        const roles = ['Chiefs', 'LOG Game Dev', 'LOG Japanese Culture', 'LOG Logistics&Events', 'LOG Design', 'LOG Marketing', 'LOG Sponsoring'];
         const guild =  client.guilds.cache.get('792119525557796864');
         const allMembers = guild.members.fetch()
         .then((members) => members.forEach(member => {
@@ -19,7 +19,7 @@ module.exports =  {
         })) 
        }catch(err){
         console.error(err);
-       }
+       }*/
         
     }
 }

@@ -33,6 +33,7 @@ const editPoints = async (MemberId,points)=>{
     }
     let pts = Member[0].points;
     pts += points;
+    pts = Math.max(0,pts);
     const updatedMember = await member.findOneAndUpdate({id:MemberId},{points:pts}, {
         new: true,
         runValidators: true,
@@ -49,6 +50,7 @@ const editHearts = async (MemberId,heart)=>{
     }
     let hts = Member[0].hearts;
     hts += heart;
+    hts = Math.max(0,hts);
     const updatedMember = await member.findOneAndUpdate({id:MemberId},{hearts:hts}, {
         new: true,
         runValidators: true,

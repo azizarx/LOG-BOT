@@ -30,7 +30,7 @@ module.exports = async (msg,args,client)=>{
         .addFields(
             {name:'Name',value:data.name},
             {name:"Points",value:data.points.toString(), inline:true},
-            {name:"Hearts",value:`${" <:LOG_HEART:1054413126390526043>".repeat(data.hearts)}${"<:LOG_HALF_HEART:1054413122800189451>".repeat(half)}`,inline:true},
+            {name:"Hearts",value:`\u200b${" <:LOG_HEART:1054413126390526043>".repeat(data.hearts)}${"<:LOG_HALF_HEART:1054413122800189451>".repeat(half)}`,inline:true},
             {name:"Rank",value:data.rank, inline:true}
         ).setFooter({text: `Made with ❤️ by ${owner.username}#${owner.discriminator}`,
         iconURL:`https://cdn.discordapp.com/avatars/372142246331416579/${owner.avatar}`})

@@ -3,7 +3,7 @@ const { EmbedBuilder } = require('discord.js');
 module.exports = async (msg, args, client)=>{
     let data = await memberC.getAllMembers();
     data.sort((a,b)=> b.points - a.points )
-    data.length > 10 ? data = data.slice(0,9) : data;
+    data.length > 10 ? data = data.slice(0,10) : data;
     let owner = await client.users.fetch("372142246331416579");
     let lb = new EmbedBuilder()
     .setAuthor({name:`${msg.author.username}#${msg.author.discriminator}`,iconURL:`https://cdn.discordapp.com/avatars/${msg.author.id}/${msg.author.avatar}`})
