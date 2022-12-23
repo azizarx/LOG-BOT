@@ -12,9 +12,10 @@ module.exports = async (msg, args, client)=>{
     .setThumbnail("https://cdn.discordapp.com/attachments/1053337914202914886/1055491258820341840/icons8-podium-100.png")
     .setFooter({text: `Made with ❤️ by ${owner.username}#${owner.discriminator}`,
     iconURL:`https://cdn.discordapp.com/avatars/372142246331416579/${owner.avatar}`})
-    
+    let i = 0;
    for(element of data){
-    lb.addFields({name:`__${element.name}__`,
+    i++;
+    lb.addFields({name:`**${i}** __${element.name}__`,
     value:`**Points: **${element.points}\n**Rank: **${element.rank}`})
    }
     msg.reply({embeds:[lb]})
