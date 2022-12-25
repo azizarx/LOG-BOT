@@ -1,7 +1,7 @@
 const memberC = require('../Controllers/Member.js');
 const makeEmbed = require('../Functions/makeEmbed')
 module.exports = async (msg,args, client)=>{
-    if(!msg.author.bot && (msg.author.id == "372142246331416579" || msg.author.id == "702185037210320996")){
+    if(!msg.author.bot && (msg.author.id == "372142246331416579" || msg.author.id == "702185037210320996" || msg.author.id == "298751944288239618" || msg.author.id == "630093221032361994")){
     let memberObj = msg.mentions.users.first();
     if(memberObj &&!memberObj.bot){
         let res = await memberC.createMember({id:args[0],name:memberObj.username});

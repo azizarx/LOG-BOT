@@ -2,7 +2,7 @@ const memberC = require('../Controllers/Member.js');
 const makeEmbed = require('../Functions/makeEmbed');
 module.exports = async (msg,args)=>{
     try{
-        if(msg.author.id == '372142246331416579' || msg.author.id == "702185037210320996"){
+        if(msg.author.id == '372142246331416579' || msg.author.id == "702185037210320996" || msg.author.id == "298751944288239618" || msg.author.id == "630093221032361994"){
         if(!args[1]){
             msg.reply("you didn't spesify the member")
             return
